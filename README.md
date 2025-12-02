@@ -72,7 +72,7 @@ A custom animated background using OGL for:
 
 ## 📁 Project Structure
 
-├── app/
+├── app/                                                                                                                                                                        
 │ ├── page.tsx
 │ ├── layout.tsx
 │ ├── globals.css
