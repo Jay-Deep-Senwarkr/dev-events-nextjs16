@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DevEvent – Discover & Book Developer Events
 
-## Getting Started
+A modern platform to explore, view, and book developer-focused events — including hackathons, conferences, meetups, and tech summits.
 
-First, run the development server:
+Built with **Next.js 16, React 19, Tailwind CSS, TypeScript, MongoDB, Cloudinary & PostHog**, DevEvent combines clean UI, fast APIs, analytics, and magical WebGL visuals.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🔎 Explore Events
+- Browse all featured dev events in a clean grid UI  
+- View detailed event pages including:  
+  - Description & Overview  
+  - Event schedule and agenda  
+  - Venue / mode (online, offline, hybrid)  
+  - Audience & tags  
+  - Organizer information  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🖼️ Image Uploads (Cloudinary)
+- Event creation API handles file uploads  
+- Images are uploaded to Cloudinary (`DevEvent` folder)  
+- Returns a secure URL for the event banner
 
-## Learn More
+### 📝 Book Your Spot
+- Simple email-based booking system  
+- Validations & unique constraint: one booking per event per email  
+- Stores bookings in MongoDB using Mongoose  
+- Tracks bookings using PostHog analytics
 
-To learn more about Next.js, take a look at the following resources:
+### ✨ Similar Events Recommendation
+- Recommendations based on event tags  
+- Excludes the current event  
+- Uses MongoDB filtering + indexing for performance
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🎇 WebGL Light Rays Background
+A fully custom **OGL-based WebGL animation** that adds:
+- Dynamic reactive lighting  
+- Mouse-follow effects  
+- Smooth performance  
+- Only runs when visible (IntersectionObserver optimized)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ⚡ Modern Performance Features
+- Next.js 16 App Router  
+- React 19 server components  
+- `cacheLife()` caching for event pages  
+- Revalidated fetch for dynamic event details  
+- Global MongoDB connection caching  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Frontend
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- OGL (WebGL animations)
+
+### Backend
+- Next.js API Routes
+- MongoDB + Mongoose
+- Cloudinary (image uploads)
+
+### Analytics
+- PostHog (client + server)
+
+---
+
+## 📁 Project Structure
+
+/app
+├── page.tsx → Homepage
+├── layout.tsx → Fonts, Navbar, LightRays
+├── api/events → Event APIs (create + fetch)
+├── events/[slug] → Dynamic event page
+/components
+├── EventCard.tsx
+├── EventDetails.tsx
+├── BookEvent.tsx
+├── LightRays.tsx
+└── Navbar.tsx
+/database
+├── event.model.ts
+└── booking.model.ts
+/lib
+├── mongodb.ts → DB connection caching
+├── actions → Server actions
+└── constants.ts → Static featured events
+/public
+├── images/ → Event images
+└── icons/ → UI icons
