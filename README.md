@@ -1,93 +1,142 @@
-# DevEvent – Discover & Book Developer Events
+# 🟦 DevEvent – Discover & Book Developer Events
 
-A modern platform to explore, view, and book developer-focused events — including hackathons, conferences, meetups, and tech summits.
+DevEvent is a modern, full-stack platform to explore developer-focused events — hackathons, conferences, meetups, and tech summits — all in one place.
 
-Built with **Next.js 16, React 19, Tailwind CSS, TypeScript, MongoDB, Cloudinary & PostHog**, DevEvent combines clean UI, fast APIs, analytics, and magical WebGL visuals.
+Built using **Next.js 16, React 19, TypeScript, Tailwind CSS, MongoDB, Cloudinary & PostHog**, the project focuses on clean UI, optimized APIs, and a premium WebGL visual experience.
 
 ---
 
 ## 🚀 Features
 
-### 🔎 Explore Events
-- Browse all featured dev events in a clean grid UI  
-- View detailed event pages including:  
-  - Description & Overview  
-  - Event schedule and agenda  
-  - Venue / mode (online, offline, hybrid)  
-  - Audience & tags  
-  - Organizer information  
+### 🔍 Event Discovery
+- Browse all featured developer events
+- View detailed event pages:
+  - Description & overview  
+  - Agenda items  
+  - Location / venue  
+  - Mode (online / offline / hybrid)  
+  - Audience & organizer  
+  - Tags and related events  
 
-### 🖼️ Image Uploads (Cloudinary)
-- Event creation API handles file uploads  
-- Images are uploaded to Cloudinary (`DevEvent` folder)  
-- Returns a secure URL for the event banner
+### 🏞️ Cloudinary Image Uploads
+- Upload event banners using Cloudinary  
+- Secure URLs fetched instantly  
+- Stream API support for high-performance uploads  
 
-### 📝 Book Your Spot
-- Simple email-based booking system  
-- Validations & unique constraint: one booking per event per email  
-- Stores bookings in MongoDB using Mongoose  
-- Tracks bookings using PostHog analytics
+### 📨 Booking System
+- Visitors can book events using email  
+- Validation + unique constraint (one booking per event per email)  
+- Fully stored in MongoDB  
+- PostHog analytics for tracking booking events  
 
-### ✨ Similar Events Recommendation
-- Recommendations based on event tags  
-- Excludes the current event  
-- Uses MongoDB filtering + indexing for performance
+### 🎯 Similar Event Recommendations
+- Based on tags  
+- Excludes current event  
+- Optimized with MongoDB indexing  
 
-### 🎇 WebGL Light Rays Background
-A fully custom **OGL-based WebGL animation** that adds:
-- Dynamic reactive lighting  
-- Mouse-follow effects  
-- Smooth performance  
-- Only runs when visible (IntersectionObserver optimized)
+### 🎇 WebGL Light Rays Background (OGL)
+A custom animated background using OGL for:
+- Dynamic rays  
+- Mouse-follow interactivity  
+- Smooth, GPU-accelerated animations  
+- Auto-disable when off-screen (IntersectionObserver)  
 
-### ⚡ Modern Performance Features
-- Next.js 16 App Router  
-- React 19 server components  
-- `cacheLife()` caching for event pages  
-- Revalidated fetch for dynamic event details  
-- Global MongoDB connection caching  
+### ⚡ Performance & Modern Architecture
+- Next.js App Router (v16)
+- React Server Components
+- `cacheLife()` caching for pages
+- Revalidated fetch for API responses
+- Global MongoDB connection pooling  
+- Tailwind CSS v4 with custom theme tokens
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- Next.js 16 (App Router)
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- OGL (WebGL animations)
+- **Next.js 16**
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **OGL (WebGL animation library)**
 
 ### Backend
-- Next.js API Routes
-- MongoDB + Mongoose
-- Cloudinary (image uploads)
+- **MongoDB + Mongoose**
+- **Next.js Route Handlers**
+- **Cloudinary Upload API**
 
 ### Analytics
-- PostHog (client + server)
+- **PostHog (client + server)**
 
 ---
 
 ## 📁 Project Structure
 
-/app
-├── page.tsx → Homepage
-├── layout.tsx → Fonts, Navbar, LightRays
-├── api/events → Event APIs (create + fetch)
-├── events/[slug] → Dynamic event page
-/components
-├── EventCard.tsx
-├── EventDetails.tsx
-├── BookEvent.tsx
-├── LightRays.tsx
-└── Navbar.tsx
-/database
-├── event.model.ts
-└── booking.model.ts
-/lib
-├── mongodb.ts → DB connection caching
-├── actions → Server actions
-└── constants.ts → Static featured events
-/public
-├── images/ → Event images
-└── icons/ → UI icons
+├── app/
+│ ├── page.tsx
+│ ├── layout.tsx
+│ ├── globals.css
+│ ├── api/
+│ │ └── events/
+│ │ ├── route.ts
+│ │ └── [slug]/
+│ │ └── route.ts
+│ └── events/
+│ └── [slug]/
+│ └── page.tsx
+├── components/
+│ ├── EventCard.tsx
+│ ├── EventDetails.tsx
+│ ├── BookEvent.tsx
+│ ├── LightRays.tsx
+│ └── Navbar.tsx
+├── database/
+│ ├── event.model.ts
+│ └── booking.model.ts
+├── lib/
+│ ├── mongodb.ts
+│ ├── constants.ts
+│ ├── utils.ts
+│ └── actions/
+│ ├── event.actions.ts
+│ └── booking.actions.ts
+├── public/
+│ ├── images/
+│ └── icons/
+
+## 🔌 API Endpoints
+
+### ➤ Create Event  
+`POST /api/events`
+
+Accepts `FormData`:
+
+title
+description
+overview
+location
+venue
+date
+time
+mode
+audience
+organizer
+tags[] (JSON string)
+agenda[] (JSON string)
+image (File)
+
+### ➤ Get All Events  
+`GET /api/events`
+
+---
+
+### ➤ Get Event by Slug  
+`GET /api/events/[slug]`
+
+Example response:
+```json
+{
+  "message": "Event fetched successfully",
+  "event": { ... }
+}
+
