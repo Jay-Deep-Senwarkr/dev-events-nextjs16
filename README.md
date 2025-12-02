@@ -154,11 +154,11 @@ cd dev-events-nextjs16`
 
 Create .env.local
 
-`MONGODB_URI=your_mongodb_uri
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-NEXT_PUBLIC_POSTHOG_KEY=your_posthog_key
-CLOUDINARY_CLOUD_NAME=xxxx
-CLOUDINARY_API_KEY=xxxx
+`MONGODB_URI=your_mongodb_uri \
+NEXT_PUBLIC_BASE_URL=http://localhost:3000 \
+NEXT_PUBLIC_POSTHOG_KEY=your_posthog_key \
+CLOUDINARY_CLOUD_NAME=xxxx \
+CLOUDINARY_API_KEY=xxxx \
 CLOUDINARY_API_SECRET=xxxx`
 
 Run Dev Server
