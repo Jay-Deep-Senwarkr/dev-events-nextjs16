@@ -102,7 +102,7 @@ A custom animated background using OGL for:
 │ └── booking.actions.ts \
 ├── public/ \
 │ ├── images/ \
-│ └── icons/ \
+│ └── icons/ 
 
 ## 🔌 API Endpoints
 
@@ -126,6 +126,7 @@ agenda[] (JSON string)
 image (File)
 
 ### ➤ Get All Events  
+
 `GET /api/events`
 
 ---
@@ -139,4 +140,28 @@ Example response:
   "message": "Event fetched successfully",
   "event": { ... }
 }
+```
+
+▶️ Getting Started
+1. Clone Repo
+
+`git clone https://github.com/YOUR_USERNAME/dev-events-nextjs16.git
+cd dev-events-nextjs16`
+
+2. Install Dependencies
+
+`npm install`
+
+Create .env.local
+
+`MONGODB_URI=your_mongodb_uri
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+NEXT_PUBLIC_POSTHOG_KEY=your_posthog_key
+CLOUDINARY_CLOUD_NAME=xxxx
+CLOUDINARY_API_KEY=xxxx
+CLOUDINARY_API_SECRET=xxxx`
+
+Run Dev Server
+
+`npm run dev`
 
