@@ -73,36 +73,36 @@ A custom animated background using OGL for:
 ## 📁 Project Structure
 
 ├── app/                                                                                                                                                                        
-│ ├── page.tsx
-│ ├── layout.tsx
-│ ├── globals.css
-│ ├── api/
-│ │ └── events/
-│ │ ├── route.ts
-│ │ └── [slug]/
-│ │ └── route.ts
-│ └── events/
-│ └── [slug]/
-│ └── page.tsx
-├── components/
-│ ├── EventCard.tsx
-│ ├── EventDetails.tsx
-│ ├── BookEvent.tsx
-│ ├── LightRays.tsx
-│ └── Navbar.tsx
-├── database/
-│ ├── event.model.ts
-│ └── booking.model.ts
-├── lib/
-│ ├── mongodb.ts
-│ ├── constants.ts
-│ ├── utils.ts
-│ └── actions/
-│ ├── event.actions.ts
-│ └── booking.actions.ts
-├── public/
-│ ├── images/
-│ └── icons/
+│ ├── page.tsx                                                                                                                                                                  
+│ ├── layout.tsx                                                                                                                                                                
+│ ├── globals.css                                                                                                                                                               
+│ ├── api/                                                                                                                                                                      
+│ │ └── events/ \
+│ │ ├── route.ts \
+│ │ └── [slug]/ \
+│ │ └── route.ts \
+│ └── events/ \
+│ └── [slug]/ \
+│ └── page.tsx \
+├── components/ \
+│ ├── EventCard.tsx \
+│ ├── EventDetails.tsx \
+│ ├── BookEvent.tsx \
+│ ├── LightRays.tsx \
+│ └── Navbar.tsx \
+├── database/ \
+│ ├── event.model.ts \
+│ └── booking.model.ts \
+├── lib/ \
+│ ├── mongodb.ts \
+│ ├── constants.ts \
+│ ├── utils.ts \
+│ └── actions/ \
+│ ├── event.actions.ts \
+│ └── booking.actions.ts \
+├── public/ \
+│ ├── images/ \
+│ └── icons/ \
 
 ## 🔌 API Endpoints
 
